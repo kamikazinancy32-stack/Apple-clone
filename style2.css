@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 14px 16px;
+    gap: 12px;
+    list-style: none;
+    color: rgb(70, 70, 70);
+    white-space: nowrap;
+}
+
+#navbar li {
+    list-style: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#navbar .logo,
+#navbar .search,
+#navbar .cart {
+    display: flex;
+    align-items: center;
+}
+
+#navbar .logo img,
+#navbar .search img,
+#navbar .cart img {
+    width: 18px;
+    height: 18px;
+    display: block;
+    object-fit: contain;
+}
+
+#navbar > li.has-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#navbar > li > a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background-color: #f5f5f7;
+    display: none;
+    padding: 40px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-top: 1px solid #d2d2d7;
+    z-index: 999;
+    text-align: left;
+}
+
+#navbar > li.has-dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.dropdown-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.column h3 {
+    font-size: 12px;
+    color: #6e6e73;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column ul li {
+    margin-bottom: 10px;
+}
+
+.column ul li a {
+    font-size: 12px;
+    color: #1d1d1f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.column ul li a:hover {
+    color: #0066cc;
+}
+
+.column ul li a.large-link {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.event {
+    position: relative;
+    width: 100%;
+    height: clamp(500px, 70vh, 650px);
+    overflow: hidden;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.event-content {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    color: white;
+}
+
+.event h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+.event h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.event button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 22px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.event button:hover {
+    background-color: #e5e5e5;
+    transform: scale(1.05);
+}
+
+.college {
+    min-height: 600px;
+    background-color: #f5f5f7;
+    background-image: url("./apple images/hero_back_to_school_.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 64px 20px 72px;
+    position: relative;
+
+    animation: collegeZoom 2s ease-in-out infinite alternate;
+}
+ 
+@keyframes collegeZoom {
+    from {
+        background-size: 100%;
+        background-position: center;
+    }
+
+    to {
+        background-size: 160%;
+        background-position: center 46%;
+    }
+}
+
+.college h2 {
+    font-size: 42px;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.college p {
+    max-width: 440px;
+    margin: 0 auto 16px;
+    font-size: 20px;
+    color: rgb(53, 53, 53);
+}
+
+.college button {
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+
+.college button:hover {
+    background-color: rgb(210, 199, 209);
+    transform: scale(1.05);
+}
+
+.latest {
+    margin-top: 30px;
+    background-color: #f5f5f7;
+    width: 100%;
+    overflow: hidden;
+}
+
+.latest .new {
+    width: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.latest .new h2 {
+    font-size: 54px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+}
+
+.latest .new p {
+    font-size: 24px;
+    color: #1d1d1f;
+    margin-bottom: 24px;
+}
+
+.latest .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+}
+
+.latest .new button {
+    padding: 11px 22px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+
+.latest .new button:first-of-type {
+    background-color: #0071e3;
+    color: white;
+    border: 1px solid #0071e3;
+}
+
+.latest .new button:first-of-type:hover {
+    background-color: rgb(237, 226, 236);
+}
+
+.latest .new button:last-of-type {
+    background-color: transparent;
+    color: #0071e3;
+    border: 1px solid #0071e3;
+}
+
+.latest .new button:last-of-type:hover {
+    background-color: rgb(237, 226, 236);
+    color: white;
+}
+
+.latest .iphone17 {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.iphone-hero {
+    max-width: none;
+    height: auto;
+    display: block;
+    transform: translateY(-120px);
+}
+
+@media (max-width: 700px) {
+    #navbar {
+        justify-content: flex-start;
+        overflow-x: hidden;
+    }
+
+    .event {
+        height: 500px;
+    }
+
+    .event h1 {
+        font-size: 34px;
+    }
+
+    .event h3 {
+        font-size: 16px;
+    }
+
+    .latest .new {
+        padding-top: 45px;
+    }
+
+    .latest .new h2 {
+        font-size: 38px;
+    }
+
+    .latest .new p {
+        font-size: 19px;
+    }
+
+    .latest .iphone17 {
+        margin-top: 20px;
+    }
+
+    .iphone-hero {
+        width: 120%;
+        max-width: none;
+    }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+    background-color: white;
+}
+
+.card {
+    background-color: #f5f5f7;
+    min-height: 550px;
+    padding: 40px 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    overflow: hidden;
+}
+
+.card h2 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.card h4 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #6e6e73;
+    margin-bottom: 15px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px 0 25px;
+}
+
+.card-buttons button {
+    padding: 9px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card-buttons button:first-child {
+    background-color: #0071e3;
+    color: white;
+    border: 1px solid #0071e3;
+}
+
+.card-buttons button:last-child {
+    background-color: transparent;
+    color: #0071e3;
+    border: 1px solid #0071e3;
+}
+
+.card > img:not(.product-logo) {
+    width: 70%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin-top: auto;
+}
+
+.card .product-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 750px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card > img:not(.product-logo) {
+        width: 5%;
+    }
+}
+
+.entertainment-section {
+    width: 100%;
+    padding: 50px 0;
+    background-color: white;
+    overflow: hidden;
+}
+
+.tv-header,
+.music-header {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.tv-header,
+.music-header {
+   margin-left: 40px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tv-header h2,
+.music-header h2 {
+    font-size: 32px;
+    color: #1d1d1f;
+}
+
+.apple-tv {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+.apple-music-logo {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .apple-music-logo {
+        width: 60px;
+        height: auto;
+    }
+
+    .tv-header h2,
+    .music-header h2 {
+        font-size: 24px;
+    }
+
+    .apple-tv,
+    .apple-music-logo {
+        width: 60px;
+    }
+}
+
+.music-header {
+    margin-top: 50px;
+}
+
+.auto-gallery {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    will-change: transform;
+}
+
+.movie-card,
+.music-card {
+    width: 420px;
+    height: 240px;
+    flex-shrink: 0;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.movie-card img,
+.music-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.top-gallery {
+    transform: translateX(0);
+}
+
+.bottom-gallery {
+    transform: translateX(-1000px);
+}
+
+@media (max-width: 700px) {
+
+    .entertainment-section {
+        padding: 35px 0;
+    }
+
+    .tv-header,
+    .music-header {
+        margin-left: 20px;
+    }
+
+    .tv-header h2,
+    .music-header h2 {
+        font-size: 24px;
+    }
+
+    .apple-tv {
+        width: 60px;
+    }
+
+    .movie-card,
+    .music-card {
+        width: 300px;
+        height: 180px;
+    }
+
+    .auto-gallery {
+        gap: 10px;
+    }
+} 
